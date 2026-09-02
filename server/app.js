@@ -11,12 +11,15 @@ const __dirname = path.dirname(__filename);
 
 import authRouter from './modules/auth/auth.routes.js';
 import operatorRouter from './modules/operator/operator.routes.js';
+import publicRouter from './modules/public/public.routes.js';
+import userRouter from './modules/user/user.routes.js';
+import shipmentsRouter from './modules/shipments/shipments.routes.js';
 /*
 import supervisorRouter from './modules/supervisor/supervisor.routes.js';
 
-import shipmentsRouter from './modules/shipments/shipments.routes.js';
+
 */
-import publicRouter from './modules/public/public.routes.js';
+
 
 const app = express();
 
@@ -31,9 +34,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api', publicRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/operator', operatorRouter);
+app.use('/api/user', userRouter)
+app.use('/api/shipments', shipmentsRouter);
 /*
 app.use('/api/supervisor', supervisorRouter);
-app.use('/api/shipments', shipmentsRouter);
+
 */
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

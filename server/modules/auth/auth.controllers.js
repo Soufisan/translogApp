@@ -5,19 +5,14 @@ import authDal from './auth.dal.js';
 class AuthControllers {
 
     register = async (req, res) => {
-        const { email, password } = req.body;
+        const { email, password , type_role} = req.body;
         try {
     
           const hashPass = await hashString(password);
-    
-          let data = [email, hashPass];
-         
-          const userId = await userDal.register(data);
-       
+          let data = [email, hashPass, type_role];
+          const userId = await authDal.register(data);
           const token = generateTokenConfirm(userId);
-         
           res.status(200).json({ message: token });
-    
         } catch (error) {
             console.log(error)
           if(error.errno === 1062){

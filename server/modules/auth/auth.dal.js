@@ -13,7 +13,7 @@ class AuthDal {
             maxUserId++;
           }
     
-          let sql = 'INSERT INTO user (user_id, email, password) VALUES (?, ?, ?)';
+          let sql = 'INSERT INTO user (user_id, email, password, type_role) VALUES (?, ?, ?, ?)';
           await executeQuery(sql, [maxUserId, ...data]);
           return maxUserId;
         } catch (error) {
