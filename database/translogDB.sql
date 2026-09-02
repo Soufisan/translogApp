@@ -3,7 +3,7 @@ CREATE DATABASE translog;
 USE translog;
 
 CREATE TABLE user (
-	user_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	user_id INT UNSIGNED NOT NULL PRIMARY KEY,
     user_name VARCHAR(30),
     email VARCHAR(100) NOT NULL UNIQUE,
     phone_number VARCHAR(20),
